@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>EmbeddedEditorHidden:kevingarrett</key>
+	<false/>
+	<key>ExpandedEditorWidth:kevingarrett:displays([(0, 0), (2560, 1440)])</key>
+	<integer>646</integer>
+	<key>ExpandedItems:kevingarrett</key>
+	<array/>
+	<key>FileFilterMode:kevingarrett</key>
+	<integer>0</integer>
+	<key>OpenDocuments:kevingarrett</key>
+	<array/>
+	<key>OpenDocumentsExpanded</key>
+	<true/>
+	<key>OpenDocumentsSplitterProportion</key>
+	<real>0.8353221957040573</real>
+	<key>ProjectItemsExpanded</key>
+	<true/>
+	<key>ProjectViewVisible</key>
+	<true/>
+	<key>RecentItems:kevingarrett</key>
+	<array/>
+	<key>ScratchpadItemsExpanded</key>
+	<true/>
+	<key>ScratchpadItemsVisible</key>
+	<true/>
+	<key>ShowSCMData:kevingarrett</key>
+	<false/>
+	<key>ToolbarVisible:kevingarrett</key>
+	<false/>
+	<key>ViewSplitterPosition:kevingarrett</key>
+	<real>0.23910482227802277</real>
+	<key>WindowFrame:kevingarrett:displays([(0, 0), (2560, 1440)])</key>
+	<string>rect(471,1578,1309,2427)</string>
+</dict>
+</plist>
