@@ -1,0 +1,14 @@
+div.flexcontainer {
+display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+/*   background-color: aliceblue; */
+}
+
+.flexitem {
+  flex-basis: auto;
+  flex: auto;
+ /*  width: 250px; */
+/*  flex-grow: 1; */
+}
