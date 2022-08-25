@@ -1,16 +1,20 @@
 div.flexcontainer {
 	display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  /* background-color: aliceblue; */
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	margin-left: auto;
+	margin-right: auto;
+	width: 90%
+	/* background-color: aliceblue; */
 }
 
-.flexitem {
+.flexbutton {
   flex-basis: auto;
   flex: auto;
  /*  width: 200px; */
  flex-grow: 0;
+ flex-shrink: 1;
 /* background-color: green; */
 }
 
@@ -30,4 +34,15 @@ li {
 #buy-buttons-section {
 	margin-bottom: 40px;
 
+}
+
+#buy-buttons-section .btn{display:inline-block;
+	padding:.375rem .75rem !important;
+}
+
+div.mytoc {
+	width:95%;
+	margin-left: auto;
+	margin-right: auto;
+	/* margin-left: 20px; */
 }
