@@ -26,6 +26,7 @@ li {
 
 #buy-buttons-section {
 	margin-bottom: 40px;
+	margin-top: 40px;
 
 }
 
@@ -35,3 +36,5 @@ li {
 
 
 h1.mytitle { font-size: 28pt !important;}
+
+img.author-pic {width: 50% !important;}
