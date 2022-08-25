@@ -1,0 +1,252 @@
+
+
+
+
+/* Move Bike Tuning to second page of TOC */
+.mytoc {
+	padding-bottom: 20px;
+}
+
+
+/*======================*/
+
+
+/* Specific by ID */
+
+/* Beats me. Image was wide as enclosing subSec but is in subSubSecSec */
+#offcamberpractice {
+	margin-left: 30px;
+}
+
+/* to align parking images across the page */
+#parkingspacer { height: 19px; }
+
+/* Chap 28 Gear for your Gear list */
+#inmybag li {
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+
+/* Suspension Sag h4. Needed to deal with Avoiding Suspension Bearing Damage  */
+#sag {
+	margin-top: 7px;
+}
+
+
+/* Bridge, wheel lift  */
+#wheelLiftBridge {
+	width: 50%; /* 45%; */
+	margin-top: 12px;
+	margin-left: 15px;
+}
+#wheelLiftBridge img {
+	/* width: 90%; */
+	float: right;
+}
+
+
+
+#uphillthenturn {
+	width: 50%; /* 45%; */
+}
+#uphillthenturn img {
+	/* width: 90%; */
+	float: right;
+}
+
+
+
+/* Indent here */
+/* p#buyingsaddles, */
+p#finalreason { text-indent: 20px; /* background-color: coral;  */}
+
+
+#nextPage {
+	width: 24%;
+	padding-top: 5px;
+}
+
+/* Mysterious top margin to rid */
+
+#deepdipswitch,
+#samready,
+#ruthop,
+#stickysnow,
+#destructivemud,
+#ewrberm { margin-top: 0; }
+
+/* custom image widths */
+#oldman {
+	width:31%;
+	padding: 3px 5px 0 5px;
+}
+
+/* #spine img { width:65%; } */
+
+
+#shocklock { /* image must be 2x3 */
+	width: 40%;
+	/* -prince-float:page top; */ /* doesn't do anything with float right */
+	-prince-float:right;
+	margin: -15px 0 0 5px;
+}
+#shocklock p {
+	margin-top: -8px;
+	font-size: 9pt;
+	line-height: 1.2;
+	text-align: center;
+	/* color: green; */
+}
+#shocklock img {
+	margin: 0;
+	padding: 6px 0 0 0;
+}
+
+
+#minspeedlimitpic {
+	width: 90%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+
+#saddlepressure .figureSec {
+	width: 50%;
+}
+#saddlepressure {
+	padding-top: 10px;
+	padding-bottom: 7px;
+	margin-top: 30px !important;
+	margin-bottom: 0;
+}
+
+#descendingSteps {
+	width:75%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+
+/* New Revision 20220705 */
+/*
+#softshoulderpic {
+	width: 40%;
+	float: right;
+}
+ */
+/*
+
+#softshoulderpic {
+	width: 70%;
+	margin-left: auto;
+	margin-right: auto;
+}
+ */
+
+#vchute {
+	width: 84%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+
+/* Action camera hanging list for some reason needs to be moved left */
+div#mountLocation {margin-left: -15px;}
+
+/* Drive Train Components */
+#lowergearing li {
+	margin: 4px 0 4px 0;
+	padding: 0;
+}
+#lowergearing ol {
+/* 	background-color: aliceblue; */
+	margin-bottom: 0;
+	padding-bottom: 0;
+}
+
+#clipinDisadvantages li,
+#flatAdvantages li,
+#flatDisadvantages li,
+#clipinAdvantages li {
+	margin-top: 5px;
+	margin-bottom: 5px;
+	/* background-color: aliceblue; */
+}
+
+
+/* shorts illo */
+#safeusafecarry {
+	width: 25%;
+	margin-left: 15px;
+	float: right;
+}
+
+#leaningadvice,
+#flatturn { widows: 1 !important;}
+
+
+#emtbdownsides li {
+	margin-top: 3px;
+	margin-bottom: 3px;
+}
+
+#whyMTB li {
+	margin-top: 2px;
+	margin-bottom: 2px;
+}
+
+/* Push Part to next page with chapters */
+h2.toc {
+	/* margin-bottom: 20px; */
+}
+
+/* Pull up h3 to top of framedSec */
+h3#usingthebook {margin-top: 0;}
+
+/* Please proceed to the following page */
+#proceed {text-align: right;}
+
+
+/* MTB Type Comparison */
+#bikeTypeHead {
+	font-size: 12pt;
+	font-family: var(--myHeadingFont);
+	color: hsl(0, 68%, 35%);
+	margin-left: 0;
+	margin-right: 0;
+	text-align:center;
+}
+
+/* Upper Body Angle */
+.blueText {color: blue;}
+.redText {color: red;}
+.greenText {color: green;}
+
+
+/* Used as subtitle for Always Carry */
+/*
+#subtitle {
+	text-align: left;
+	font-family: var(--myBodyFont);
+	line-height: 1.2em;
+	font-size: 1.2em;
+	font-weight: normal;
+}
+#subtitle { margin: 0; }
+ */
+
+
+
+
+/* Floated images outisde of sectionSec indent for some mysterious reason */
+/* #otherMobileApps {margin-left: 15px;} */
+
+
+
+    overflow: hidden;
+}
+
+#second img {width: 25%;}
+ */
+

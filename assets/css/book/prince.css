@@ -1,0 +1,676 @@
+/*
+=================
+PRINCE PAGED MEDIA
+================== */
+
+:root {
+	--myMarginTextColor: black; /* cmyk(85%, 85%, 0%, 85%);  *//* cmyk(95%, 95%, 0%, 8%);  *//* hsl(240, 64%, 35%); */ /* blue cmyk(78%, 78%, 0%, 43%) */
+	--myMarginHeaderFont: ff-meta-headline-web-pro, cursive; /* mr-eaves-xl-modern, mr-eaves-xl-sans, */
+	--myMarginHeaderWeight: 500; /* 600 */
+	--myMarginHeaderSize: 14pt;
+	--myMarginFooterWeight: 500;
+	--myMarginFooterSize: 12pt;
+
+	--padForTop: 10px;
+	--padForBottom: 5px;
+
+	--mySeeRefFont: ff-meta-headline-web-pro, cursive; /* mr-eaves-xl-modern-narrow, */
+	--mySeeRefColor: hsl(120, 100%, 20%); /* darkgreen  cmyk(100%, 0%, 100%, 60%) */
+
+}
+
+/* ============ TOC and Index ============ */
+
+#toc, #ix, #ixProd, li  { list-style-type: none; margin: 0; padding: 0 } /* , li */
+
+#toc a:after { content: leader('. ') target-counter(attr(href), page) }
+
+#toc a.roman:after {content: leader('. ') target-counter(attr(href), page, lower-roman) }
+
+#toc li, #ix li, #ixProd li { list-style-type: none }
+
+/* Parts */
+#toc li.h1 {
+	font-weight: 500;
+	margin-top: 12px;  /* 9px;  */
+	margin-bottom: 9px;
+}
+
+/* Chapters */
+#toc li.h2 {
+	margin-left: 1em;
+	margin-top: 2px;
+	margin-bottom: 2px;
+}
+
+/* Sections (not used) */
+#toc li.h3 { margin-left: 2em; /* font-style: italic; */ }
+
+/* test */
+/* #toc li.h2:has(> a href#ch1) { */
+/* #toc li.h2:has(> a#ch1) */
+
+/* Front and Backmatter */
+#toc li.tocUnindent {
+	margin-left: 0;
+	padding-left: 0;
+	/* background-color: lime; */
+}
+
+/* Sections (not used) */
+/* #toc li.h3 { margin-left: 2em; font-style: italic } */
+
+#ixProd span.dots:after,
+#ix span.dots:after { content: leader('. ') ; }
+
+
+/* tighten or spread TOC */
+ol#toc li { line-height: 1.30em; }  /*  1.34em; 1.37em; */
+
+/* tighten up Index */
+ol#ix li { line-height: 1.34em; /* 1.45em;  */} /* was 1.42 */
+
+/* tighten up Product Index */
+ol#ixProd li { line-height: 1.30em; } /* was 1.42 */
+
+
+ol#ix li {
+	font-family: var(--myBodyFont);
+	font-size: var(--bodyFontSize);
+	/* line-height: 1.33em; */
+}
+h1, h2 { break-before: page }
+
+/* or...? */
+/* h1 { break-before: page }
+div.chapterSec { break-before: page } */
+
+
+body {
+	counter-reset: figNo;
+	counter-reset: chapNo;
+	counter-reset: page;
+	counter-reset: secNo;
+}
+
+/* example of text-replace */
+/* p, h3 {
+	-prince-text-replace: "dipswitch" "bend-dip";
+	-prince-text-replace: "Dipswitch" "Bend-Dip";
+	-prince-text-replace: "Dipswitches" "Bend-Dips";
+	-prince-text-replace: "dipswitches" "bend-dips";
+}
+ */
+
+
+h1 { string-set: partTitle content() }
+
+/* ===================
+  Page Groups: this section is used to place the contentTitle name, gloss, index at the top left of the page.
+  ===================*/
+
+div.mytoc {
+	-prince-page-group: start;
+	string-set: contentTitle "Table of Contents";
+	counter-reset: page 3;
+	}
+
+div.frontmatterSec {
+	-prince-page-group: start;
+	string-set: contentTitle "";
+}
+
+
+#introduction {
+/* 	counter-reset: figNo; */
+}
+
+div.mainmatter { /* OMG This fixed things */
+	counter-reset: figNo;
+	counter-reset: chapNo;
+}
+
+div.chapDiv {
+	counter-increment: chapNo;
+	counter-reset: figNo 0;
+}
+
+div.introPartSec {
+	-prince-page-group: start;
+	string-set: contentTitle "Introduction";
+	counter-reset: chapNo;
+}
+
+div.chapterSec {
+	-prince-page-group: start;
+	string-set: contentTitle content();
+	/* counter-reset: secNo 0; */ /* if this is after figNo reset, it screws up figNo reset */
+	counter-reset: secNo;
+}
+
+div.sectionSec {
+	counter-increment: secNo;
+}
+
+div.figureSec {
+	counter-increment: figNo;
+}
+
+div.backmatterSec {
+	-prince-page-group: start;
+	string-set: contentTitle "";
+	counter-reset: chapNo;
+	/* counter-reset: figNo; */
+}
+
+div.glossarySec { /* h2.glossarySec */
+	-prince-page-group: start;
+	string-set: contentTitle "Glossary";
+}
+
+div.indexSec {
+	-prince-page-group: start;
+	string-set: contentTitle "Index";
+}
+
+div.prodIndexSec {
+	-prince-page-group: start;
+	string-set: contentTitle "Product Index";
+}
+
+
+
+
+/*============ Counters and Links ================ */
+
+/* Display Section Numbers  (but not in the Intro) */
+h3:not(h3.noSecNum)::before {
+	content: counter(chapNo) "." counter(secNo) " ";
+}
+
+/* Writes Figure number below images */
+p.caption::before {
+	content: "Figure " counter(chapNo) "." counter(figNo) " ";
+	/* color: green; */
+}
+
+/* Inserts reference link with title and page number */
+.seeRef a[href]::after {
+    content: target-content(attr(href)) ", p. " target-counter(attr(href), page);
+}
+
+/* Inserts reference link with title and (page number) */
+.seeRef.inline a[href]::after {
+    content: target-content(attr(href)) " (p. " target-counter(attr(href), page) ")";
+}
+
+/* Styles seeRefs */
+.seeRef {
+	font-family: var(--mySeeRefFont);
+	font-size: 11.5pt; /* font-size: 13.5pt; */
+	letter-spacing: inherit; /* -.5px; */
+	line-height: inherit;
+	font-weight: normal;
+	/* word-spacing: -.5px; */
+	/* background-color: lime; */
+}
+
+.seeRef a {
+	color: var(--mySeeRefColor); /*  hsl(120, 100%, 20%); */ /* darkgreen  cmyk(100%, 0%, 100%, 60%) */
+	/* color: #004d00;  *//*  darkgreen = #006400  */
+	letter-spacing: inherit;
+}
+
+/* Inserts page number only link in text */
+.pageRef a[href]::after {
+    content: "p. " target-counter(attr(href), page) ;
+	letter-spacing: inherit;
+	line-height: inherit;
+	word-spacing: inherit;
+	/* background-color: lime; */
+}
+.pageRef.inline a[href]::after {
+    content: " (p. " target-counter(attr(href), page) ")";
+	/* background-color: lime; */
+}
+
+
+/* Inserts figure number link in text */
+.seeFig a[href]::after {
+    content: target-counter(attr(href), chapNo) "." target-counter(attr(href), figNo) ;
+	letter-spacing: inherit;
+	line-height: inherit;
+	word-spacing: inherit;
+	/* background-color: Fuchsia; */
+}
+
+/* puts Gloss page ref after gloss entry. Meh */
+.glossRef a[href]::after {
+    content: " [p." target-counter(attr(href), page)"]" ;
+	letter-spacing: inherit;
+	line-height: inherit;
+	word-spacing: inherit;
+	vertical-align: sub;
+  	font-size: 9pt;
+}
+
+
+
+/* ===================
+  @page rules
+  ===================*/
+
+/* Printed image width = 12.24cm = 4.82in
+@ 300dpi, width = 1445 px min.
+@ 240dpi, width = 1157 min. */
+/* 1mm = 2.83 points -- 0.3553mm = 1pt */
+@page {
+	size: 6in 9in;
+	/* margin-top: 1.5cm; */
+	/* margin-bottom: 1.5cm; */
+	margin-top: 2.3cm; /* 1.7cm; */
+	margin-bottom: 2cm; /* 1.3cm; */
+
+	margin-inside: 1.5cm;
+	margin-outside: 1.5cm;
+
+/*
+	margin-top: .5in;
+	margin-bottom: .5in;
+	margin-inside: .5in;
+	margin-outside: .5in;
+ */
+
+	/* -prince-pdf-page-colorspace:cmyk; */
+	/* marks: crop; */
+	-prince-text-justify: auto;
+	/* -prince-bleed: auto ;  *//* '6pt' if marks present */
+	-prince-trim: 0; /* 3mm 3mm;  */   /* height width */ /* auto  = '57pt 48pt' if marks present */
+	/* -prince-mark-length: 24pt; */
+	/* -prince-mark-width: 0.1pt; */
+	-prince-mark-offset:auto ;  /* equal to prince-bleed */
+	-prince-image-resolution: 300dpi;
+
+	/* -prince-linebreak-magic: auto; */ /* ? doesn't seem to do anything for me */
+}
+
+
+@prince-pdf {
+	-prince-pdf-page-colorspace:cmyk; /* rgb;  *//* auto; */
+	/* -prince-pdf-profile: "PDF/X-1a:2001";   */        /* PDF/X-1a:2001 or PDF/X-3:2002 */
+	/* -prince-pdf-color-options: use-rich-black; */
+	-prince-pdf-output-intent: url("SWOP2006_Coated3v2.icc"); /* ? */
+	-prince-pdf-color-conversion: no-embed;
+}
+
+@page {
+    counter-increment: page;
+}
+
+.mytitlepage {
+	/* display: block; */
+}
+
+.blank {
+	display: block;
+	page: blank;
+	counter-reset: page;
+}
+
+.myFrontCover {
+	display: block;
+	page: frontCover;
+	break-after: always;
+}
+
+.insidecover {
+	display:block;
+	page: insidecover;
+	counter-reset: page;
+}
+
+.myBackCover {
+	display: block;
+	page: backCover;
+}
+
+.mytoc {
+	display: block;
+	page: table-of-contents;
+	margin-bottom: 10px;
+}
+
+.myfrontmatter {
+	display: block;
+	page: frontmatter;
+}
+
+.myintro {
+	display: block;
+	page: introduction;
+}
+
+.PartSec, .introPartSec {
+	/* display: block; */
+	page: partsec;
+}
+
+.mainmatter {
+	display: block;
+	page: mainmatter;
+}
+
+.mybackmatter {
+	display: block;
+	page: backmatter;
+}
+
+.myglossary {
+	display: block;
+	page: glossary;
+}
+
+.myindex {
+	display: block;
+	page: index;
+}
+
+.myProdIndex {
+	display: block;
+	page: prodindex;
+}
+
+
+/* test (screws things up)*/
+/*
+.chapterSec {
+	page: chapsec;
+}
+ */
+
+
+/* Covers */
+@page frontCover {
+	background: url("../images/cover-front.png");
+	background-position: center;
+	background-size: 102%;
+	background-repeat: no-repeat;
+}
+
+@page backCover {
+	background: url("../images/cover-back.png");
+	background-position: center;
+	background-size: 102%;
+	background-repeat: no-repeat;
+}
+
+
+/* for dev only */
+@page insidecover {
+	@prince-overlay {
+		color: gray;
+		content: "Inside Cover";
+		font-size: 60pt;
+	}
+}
+
+
+/* TOC and Front matter */
+
+/* RIGHT PAGE */
+@page table-of-contents:right, frontmatter:right {
+	@top-right {
+		font-family: var(--myMarginHeaderFont);
+		font-weight: var(--myMarginHeaderWeight);
+		font-size: var(--myMarginHeaderSize);
+		color: var(--myMarginTextColor);
+		content: string(contentTitle);
+		display: table-cell;
+		vertical-align: bottom;
+		padding-bottom: var(--padForTop);
+	}
+	@bottom-left {
+		font-family: var(--myMarginHeaderFont);
+		font-size: var(--myMarginFooterSize);
+		font-weight: var(--myMarginFooterWeight);
+		color: var(--myMarginTextColor);
+		content: "The New Rider's Guide";
+		display: table-cell;
+		vertical-align: top;
+		padding-top: var(--padForBottom);
+	}
+	@bottom-right {
+		font-family: var(--myMarginHeaderFont);
+		font-weight: var(--myMarginFooterWeight);
+		font-size: var(--myMarginFooterSize);
+		color: var(--myMarginTextColor);
+		content: counter(page, lower-roman);
+		display: table-cell;
+		vertical-align: top;
+		padding-top: var(--padForBottom);
+
+	 }
+}
+
+/* LEFT PAGE */
+@page table-of-contents:left, frontmatter:left {
+	@bottom-left {
+		font-family: var(--myMarginHeaderFont);
+		font-size: var(--myMarginFooterSize);
+		font-weight: var(--myMarginFooterWeight);
+		color: var(--myMarginTextColor);
+		content: counter(page, lower-roman);
+		display: table-cell;
+		vertical-align: top;
+		padding-top: var(--padForBottom);
+	 }
+	@bottom-right {
+		font-family: var(--myMarginHeaderFont);
+		font-size: var(--myMarginFooterSize);
+		font-weight: var(--myMarginFooterWeight);
+		color: var(--myMarginTextColor);
+		content: "Mountain Biking 101";
+		display: table-cell;
+		vertical-align: top;
+		padding-top: var(--padForBottom);
+	}
+}
+
+/* book title */
+/*
+@page table-of-contents:left, frontmatter:left, backmatter:left, glossary:left, index:left {
+	@top-left {
+		font-family: 'Noto Sans Bold';
+		content: "Mountain Biking 101";
+	}
+}
+ */
+
+
+/* no upper margin content on first page of these groups */
+@page table-of-contents:first, partsec:first {
+	@top-right { content: normal }
+}
+
+@page table-of-contents:first {
+	@top-left {
+		font-family: var(--myMarginHeaderFont);
+		font-weight: var(--myMarginHeaderWeight);
+		font-size: var(--myMarginHeaderSize);
+		color: var(--myMarginTextColor);
+		content: "Mountain Biking 101";
+		display: table-cell;
+		vertical-align: bottom;
+		padding-bottom: var(--padForTop);
+		}
+}
+
+/*
+@page introduction:left {
+	@top-left {
+		content: "";
+	}
+	@top-right {
+		font-family: var(--myMarginHeaderFont);
+		font-weight: var(--myMarginHeaderWeight);
+		font-size: var(--myMarginHeaderSize);
+		color: var(--myMarginTextColor);
+		content: counter(page);
+		display: table-cell;
+		vertical-align: bottom;
+		padding-bottom: var(--padForTop);
+	}
+	@bottom-left {
+		font-family: var(--myMarginHeaderFont);
+		font-weight: var(--myMarginFooterWeight);
+		font-size: var(--myMarginFooterSize);
+		color: var(--myMarginTextColor);
+		content: "Mountain Biking 101";
+		display: table-cell;
+		vertical-align: top;
+		padding-top: var(--padForBottom);
+	}
+}
+ */
+
+/* RIGHT */
+@page introduction:right {
+/*
+	@top-left {
+		font-family: var(--myMarginHeaderFont);
+		font-weight: var(--myMarginHeaderWeight);
+		font-size: var(--myMarginHeaderSize);
+		color: var(--myMarginTextColor);
+		content: counter(page);
+		display: table-cell;
+		vertical-align: bottom;
+		padding-bottom: var(--padForTop);
+	}
+ */
+/*
+	@top-right {
+		font-family: var(--myMarginHeaderFont);
+		font-weight: var(--myMarginHeaderWeight);
+		font-size: var(--myMarginHeaderSize);
+		color: var(--myMarginTextColor);
+		content: "Introduction";
+		display: table-cell;
+		vertical-align: bottom;
+		padding-bottom: var(--padForTop);
+	}
+ */
+/*
+	@bottom-right {
+		font-family: var(--myMarginHeaderFont);
+		font-weight: var(--myMarginFooterWeight);
+		font-size: var(--myMarginFooterSize);
+		color: var(--myMarginTextColor);
+		content: "The New Rider's Guide";
+		display: table-cell;
+		vertical-align: top;
+		padding-top: var(--padForBottom);
+	}
+ */
+}
+
+/* PartSecs */
+@page partsec:right {
+	@bottom-right {
+		font-family: var(--myMarginHeaderFont);
+		font-weight: var(--myMarginFooterWeight);
+		font-size: var(--myMarginFooterSize);
+		color: var(--myMarginTextColor);
+		content: counter(page);
+		display: table-cell;
+		vertical-align: top;
+		padding-top: var(--padForBottom);
+	 }
+	@bottom-left {
+		font-family: var(--myMarginHeaderFont);
+		font-weight: var(--myMarginFooterWeight);
+		font-size: var(--myMarginFooterSize);
+		color: var(--myMarginTextColor);
+		content: "The New Rider's Guide";
+		display: table-cell;
+		vertical-align: top;
+		padding-top: var(--padForBottom);
+    }
+}
+
+
+/* Main matter, backmatter, gloss and index */
+
+/* RIGHT PAGES */
+@page mainmatter:right, backmatter:right, glossary:right, index:right, prodindex:right  {
+	@top-right {
+		font-family: var(--myMarginHeaderFont);
+		font-weight: var(--myMarginHeaderWeight);
+		font-size: var(--myMarginHeaderSize);
+		color: var(--myMarginTextColor);
+		content: string(contentTitle); /* Chapter Title */
+		/* padding-top: var(--padForTop); */
+		display: table-cell;
+		vertical-align: bottom;
+		padding-bottom: var(--padForTop);
+	}
+	@bottom-left { /* Subtitle */
+		font-family: var(--myMarginHeaderFont);
+		font-weight: var(--myMarginFooterWeight);
+		font-size: var(--myMarginFooterSize);
+		color: var(--myMarginTextColor);
+		content: "The New Rider's Guide";
+		display: table-cell;
+		vertical-align: top;
+		padding-top: var(--padForBottom);
+	 }
+	@bottom-right { /* Page Number */
+		font-family: var(--myMarginHeaderFont);
+		font-weight: var(--myMarginFooterWeight);
+		font-size: var(--myMarginFooterSize);
+		color:  var(--myMarginTextColor);
+		content: counter(page);
+		/* padding-top: var(--padForTop); */
+		display: table-cell;
+		vertical-align: top;
+		padding-top: var(--padForBottom);
+	 }
+
+}
+
+/* LEFT PAGES */
+@page mainmatter:left, backmatter:left, glossary:left, index:left, prodindex:left {
+	@bottom-left { /* Page Number */
+		font-family: var(--myMarginHeaderFont);
+		font-weight: var(--myMarginFooterWeight);
+		font-size: var(--myMarginFooterSize);
+		color: var(--myMarginTextColor);
+		content: counter(page);
+		display: table-cell;
+		vertical-align: top;
+		padding-top: var(--padForBottom);
+	 }
+	@bottom-right { /* Book title */
+		font-family: var(--myMarginHeaderFont);
+		font-weight: var(--myMarginFooterWeight);
+		font-size: var(--myMarginFooterSize);
+		color: var(--myMarginTextColor);
+		content: "Mountain Biking 101";
+		display: table-cell;
+		vertical-align: top;
+		padding-top: var(--padForBottom);
+	}
+}
+
+@page mainmatter:left {
+	@top-left { /* Part title */
+		font-family: var(--myMarginHeaderFont);
+		font-weight: var(--myMarginHeaderWeight);
+		font-size: var(--myMarginHeaderSize);
+		color: var(--myMarginTextColor);
+		content: string(partTitle);
+		display: table-cell;
+		vertical-align: bottom;
+		padding-bottom: var(--padForTop);
+	}
+}
+

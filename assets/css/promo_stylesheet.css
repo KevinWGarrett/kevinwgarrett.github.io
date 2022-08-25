@@ -1,5 +1,5 @@
 div.flexcontainer {
-display: flex;
+	display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
@@ -24,4 +24,10 @@ li::marker {
 li {
 	/* background-color: pink; */
 	margin-bottom: 13px !important;
+}
+
+
+#buy-buttons-section {
+	margin-bottom: 40px;
+
 }

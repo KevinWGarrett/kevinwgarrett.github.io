@@ -1,0 +1,1693 @@
+
+/* ============================= */
+/* Fonts */
+/* ============================= */
+
+/* import Raleway and Noto Sans Light */
+/* seems to still show Raleway even when not activated */
+/* processing can be messed up if connection is poor
+[[prince: https://use.typekit.net/rjt0eou.css: warning: OpenSSL SSL_connect: Operation timed out in connection to use.typekit.net:443 */
+
+/* turn off when not needed */
+@import url("https://use.typekit.net/rjt0eou.css");
+
+:root {
+
+	--myHeadingFont: ff-meta-headline-web-pro, cursive; /* mr-eaves-xl-modern-narrow, mr-eaves-xl-modern, mr-eaves-xl-sans, cursive; */
+	--myPartHeadingFont: ff-meta-headline-web-pro, cursive; /* mr-eaves-xl-modern, mr-eaves-xl-sans, */
+	--myHeadingColor: black; /* cmyk(100%, 100%, 0%, 0%); */ /* black; */ /* cmyk(95%, 95%, 0%, 8%); */ /* hsl(240, 64%, 35%); */  /*  blue cmyk(78%, 78%, 0%, 43%) */
+	--headingWeight: 400;
+	--h2FontSize: 19pt;
+	--h3FontSize: 16pt;
+	--h4FontSize: 14pt;
+	--h5FontSize: 13pt;
+	--myBodyFont: 'beaufort-pro', cursive; /* 'beaufort-pro' */
+	--bodyFontSize: 11.5pt; /*  12pt; */
+	--bodyWeight: 400;
+	--strongWeight: 500;
+
+	--myGreen: hsl(120, 52%, 93%); /* cmyk(8%, 0%, 8%, 3%) */
+	--myBlue: hsl(208, 100%, 95%);/*  cmyk(10%, 5%, 0%, 0%) */
+	--myRed: hsl(16, 100%, 95%);/*  cmyk(0%, 7%, 10%, 0%) */
+	--myDarkPurple: hsl(256, 35%, 35%);/* cmyk(38%, 52%, 0%, 53%) */  /* hsl(330, 100%, 20%); */
+	/* --myHilighter: hsl(90, 100%, 90%); */ /* brighter for cmyk conversion */
+	--myHilighter: cmyk(0%, 0%, 60%, 0%); /* yellow for cmyk conversion */
+	/* --myHilighter: hsl(90, 100%, 80%); */ /* cmyk(20%, 0%, 40%, 0%) */
+	--glsWrdColor: hsl(180, 100%, 20%); /* cyan */
+	--estTermsColor : hsl(210, 100%, 35%); /*  indigo */
+	--myTermsColor: hsl(0, 100%, 25%); /*  maroon; */
+}
+
+/*
+
+'beaufort-pro' 300 pages break on 11.6 Braking in Turns
+kandal 288
+
+dashiell-text 288 pages (400)
+source-serif-4-display 290 (weight 400)
+minion
+proforma 290
+leo
+
+
+ */
+
+/*
+ff-meta-web-pro
+300,400,500,600,700
+
+ff-meta-web-pro-condensed
+400,500,600,700
+
+
+ff-meta-headline-web-pro
+300,400,700
+
+ff-meta-headline-web-pro-con
+400,700
+
+ff-meta-headline-web-pro-com
+400,700
+
+raleway
+300
+ */
+
+
+
+
+
+body {
+	font-family: var(--myBodyFont);
+	font-size: var(--bodyFontSize);
+	line-height: 1.33em;
+	/* font-weight: normal; */
+	font-weight: var(--bodyWeight);
+}
+
+p.body {
+	text-align: justify;
+	text-justify: inter-word;
+/*
+	-prince-hyphenate-before: 3;
+	-prince-hyphenate-after: 3;
+ */
+
+	hyphens: auto;
+	break-inside: auto;
+	widows:2;
+	orphans:2;
+	/* letter-spacing: -.4px; */
+}
+
+
+/* tighten up paragraph breaks formed by empty para tags */
+p.parabreak {
+ 	font-size: 10px;
+ 	line-height: 100%;
+}
+
+
+
+/*=============== Zeroing ===============*/
+
+
+div  { margin: 0; padding: 0; }
+
+/* Chapters */
+div.chapterSec,
+div.backmatterSec,
+div.glossarySec,
+div.chapterSecText { margin: 0; clear: both;}
+
+/* Sections */
+div.sectionSec,
+div.introSec,
+div.chapterSecText,
+div.backmatterSecText {
+	margin: 0;
+	padding: 0;
+	clear: both;
+	/* background-color: linen; */
+}
+
+div.mytoc {
+	padding-top: 0px;
+	margin-top: 0px;
+}
+
+
+/*============= Headings ==================*/
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: var(--myHeadingFont);
+	font-weight: var(--headingWeight);
+	font-style: normal;
+	color: var(--myHeadingColor);
+	clear: both;
+}
+
+
+/* condensed headings */
+.condensed {
+    /* font-family: 'Noto Sans Condensed Bold' */ ;
+}
+
+.semicondensed {
+    /* font-family: 'Noto Sans Semi Condensed Bold' */ ;
+}
+
+/* Important Information Read Me! sections */
+.readMe {
+	font-family: var(--myHeadingFont); /* 'Noto Sans Bold'; */
+	color: crimson; /* var(--myHeadingColor); */
+	text-align: center;
+	font-size: var(--h2FontSize);
+	font-weight: var(--headingWeight); /* 600; */
+	padding: 0 0 5px 0;
+	margin: 0 0 4px 0;
+}
+
+
+/*========= H1 ============*/
+
+/* hide h1, used only for TOC, not display */
+.heading1 {display: hidden; font-size: 0px; }
+
+
+
+/* all must have the same line-height so that
+their baselines will align when at top of page */
+h2, h3, h4, h5, .fauxh3, .fauxh4 {
+	line-height: 25px;
+	text-align: left;
+	font-weight: normal;
+}
+
+/*========= H2 ============*/
+
+/*
+.mytoc h2,
+.frontmatterSec h2,
+.backmatterSec h2,
+.indexSec h2,
+.chapterSec h2,
+.glossarySec */
+h2 { font-size: var(--h2FontSize); }
+
+.frontmatterSec h2,
+.chapterSec h2,
+.backmatterSec h2,
+.glossarySec h2,
+.indexSec h2,
+.prodIndexSec h2 {
+	padding: 0;
+	margin: 0px 0 10px 0; /* -8px 0 10px 0; */
+	/* -8 top raises the 20pt, 1.4 l-h title to limit.
+	 10px lowers the following para text */
+	/* background-color: lightsteelblue; */
+}
+
+.mytoc h2 {
+	padding-top: 0px;
+	margin-top: 0px;
+	/* background-color: aliceblue; */
+}
+
+/*========= H3 (Sections) ============*/
+
+/*
+.sectionSec h3,
+.introSec h3,
+.frontmatterSec h3,
+.backmatterSec h3,
+.glossarySec
+ */
+ h3 {
+ 	font-size: var(--h3FontSize); /*  18pt; */
+	/* background-color: thistle; */
+}
+
+
+
+.pagebreak.sectionSec h3,
+.pagebreak.introSec h3,
+.pagebreak.frontmatterSec h3,
+.pagebreak.backmatterSec h3  {
+	padding: 0 0 5px 0;
+	margin: 0 0 4px 0; /*  0 0 9px 0; made first line even with chapter text */
+}
+
+/*
+.sectionSec h3,
+.introSec h3,
+.frontmatterSec h3,
+.backmatterSec h3,
+ */
+h3 {
+	padding: 0 0 5px 0; /* keep same as .pagebreak.etc */
+	margin: 13px 0 2px 0;
+/* same bottom padding and bottom margin as .pagebreak... margin-top increased */
+}
+
+
+/*========= H4 (SubSections)============*/
+
+/* .subSecSec h4,  */
+h4 {
+	font-size: var(--h4FontSize);  /*  16pt; */  /* 14pt; */
+}
+
+
+.subSecSec h4  {
+	padding: 1px 0 2px 0; /*  0 0 4px 0; */
+	margin: 10px 0 2px -15px; /*  margin: 10px 0 2px -15px; */
+	/* background-color: slategray; */
+}
+
+.pagebreak.subSecSec h4 {
+	padding: 1px 0 2px 0;
+	margin: 0 0 3px -15px;
+	/* background-color: mintcream; */
+	/* sets vertical spacing above and below h4s */
+}
+
+
+
+/* Used to put a heading on illo-level-modified-attack-postition.png  */
+.fauxh4 {
+	font-family: var(--myHeadingFont);
+	font-size: var(--h4FontSize);
+	font-weight: var(--headingWeight);
+	color: var(--myHeadingColor);
+	padding: 0;
+	margin: 0 0 0 -15px;
+}
+
+
+
+/* used for headings that used to be lone subSecSecs. Match to h4 subSecSec */
+.sectionSubHead {
+	padding: 0;
+	margin: 10px 0 3px 0;
+	/* background-color: Lawngreen; */
+}
+
+
+
+
+/*========= H5 (Sub-sub Sections) ============*/
+
+.subSubSecSec h5, h5 {
+	font-size: var(--h5FontSize); /* 13pt */
+	/* background-color: yellow; */
+}
+
+.pagebreak.subSubSecSec h5, h5 {
+	margin: 0 0 10px -15px;
+	padding: 1.5px 0 3px 0; /* brings baseline even with Chap and Sec */
+	/* background-color: mediumorchid; */
+}
+
+/* used as a heading without a subSubSecSec */
+.subSubSecSec h5, h5 {
+	margin: 10px 0 0px -15px;
+	padding: 1.5px 0 3px 0;
+}
+
+
+.subSecSec h5 {
+	margin: 10px 0 0px -15px;/*  10px 0 5px -15px; */
+	padding: 1.5px 0 3px 0; /* brings baseline even with Chap and Sec */
+}
+/* selects an h5 heading immediately following an h4 heading */
+/* tightens up Thorns and Burrs to Vegetable Hazards */
+/*
+None of this works and can be deleted? The 5px bottom margin on h5 was the problem. I have set it to zero. .pagebreak.subSubSecSec h5 still has a 10px bottom margin. I don't know of that's ever even used.
+ */
+/*
+div.subSecSec h4 + div.subSubSecSec h5  {
+	margin-top: 0px;
+	background-color: yellow;
+}
+
+h5 + p {
+	margin-top: -5px;
+	padding-top: 0;
+	background-color: aliceblue;
+}
+ */
+
+.fauxh5 {
+	font-size: var(--h5FontSize);
+	font-family: var(--myHeadingFont);
+	color: var(--myHeadingColor);
+}
+
+/* Used for shimano and SRAM component levels */
+.fauxTextHead {
+	font-size: 12pt;
+	font-family: var(--myHeadingFont);
+	color: var(--myHeadingColor);
+}
+
+/*======= SubSec and SubSubSection Margins =======*/
+
+/* Sub Sections */
+div.subSecSec {
+	margin: 0 0 0 15px; /* indent for subSecSec */
+	padding: 0;
+	/* background-color: powderblue; */
+}
+
+/* Top margin for first line of Section after Subsection */
+div.subSecSec + p.body {
+	margin-top: 11px;
+	/* background-color: lime; */
+}
+
+
+/* Sub Sub Sections */
+div.subSubSecSec {
+	margin: 0 0 0 15px; /* indent for subSubSecSec */
+	/* padding-top: .7em; */
+	/* padding-bottom: .5em; */
+	/* background-color: PaleTurquoise; */
+}
+
+/* sub-sub sections */
+div.subSubSecSec p.body  {
+	/* padding-left: 15px;  *//* sets left margin of text */
+	/* background-color: pink; */
+}
+
+.subScriptText { margin-bottom: -2px; }
+
+
+.widows1 { widows: 1 !important; }
+.widows3 { widows: 3 !important; }
+.orphans1 { orphans: 1 !important; }
+
+
+/* ==================
+Line Height, and Letter Spacing
+================== */
+
+.letterspacing10 { letter-spacing: -.1px }
+.letterspacing15 { letter-spacing: -.15px }
+.letterspacing20 { letter-spacing: -.2px }
+.letterspacing25 { letter-spacing: -.25px }
+.letterspacing30 { letter-spacing: -.3px }
+.letterspacing35 { letter-spacing: -.35px }
+.letterspacing40 { letter-spacing: -.4px }
+.letterspacing45 { letter-spacing: -.45px }
+.letterspacing50 { letter-spacing: -.5px }
+.letterspacing55 { letter-spacing: -.55px }
+
+.lineheight120 p { line-height: 1.20; }
+.lineheight125 p { line-height: 1.25; }
+.lineheight130 p { line-height: 1.30; }
+.lineheight135 p { line-height: 1.35; }
+.lineheight140 p { line-height: 1.40; }
+.lineheight145 p { line-height: 1.45; }
+.lineheight150 p { line-height: 1.50; }
+.lineheight155 p { line-height: 1.55; }
+.lineheight160 p { line-height: 1.60; }
+.lineheight165 p { line-height: 1.65; }
+.lineheight170 p { line-height: 1.70; }
+.lineheight175 p { line-height: 1.75; }
+.lineheight180 p { line-height: 1.80; }
+
+p.lineheight120 { line-height: 1.20; }
+p.lineheight125 { line-height: 1.25; }
+p.lineheight130 { line-height: 1.30; }
+p.lineheight135 { line-height: 1.35; }
+p.lineheight140 { line-height: 1.40; }
+p.lineheight145 { line-height: 1.45; }
+p.lineheight150 { line-height: 1.50; }
+p.lineheight155 { line-height: 1.55; }
+p.lineheight160 { line-height: 1.60; }
+p.lineheight165 { line-height: 1.65; }
+p.lineheight170 { line-height: 1.70; }
+p.lineheight175 { line-height: 1.75; }
+p.lineheight180 { line-height: 1.80; }
+
+/* ============================= */
+/* Margins & Padding */
+/* ============================= */
+
+p { margin: 0; }
+
+body { 	margin: 0; } /* set to non-zero value for testing */
+
+p.body { margin: 0; }
+
+/*============= Parts ===========*/
+
+
+.PartSecNumber { /* e.g. "Part Seven" */
+	line-height: 1.2em;
+	font-size: 50pt; /* 42pt; */
+	font-weight: 400;
+	font-family:  var(--myHeadingFont);
+	color: var(--myHeadingColor);
+}
+
+/* changed h2 on PartSec to para class="partheading" to avoid being in TOC */
+.partheading {
+	line-height: 1.3;
+	font-size: 26pt; /* 26pt; */
+	text-indent: 0px;
+	font-family: var(--myHeadingFont);
+	font-weight: 400;
+	color: var(--myHeadingColor);
+}
+
+.partSecText {
+	text-indent: 0;
+	text-align: justify;
+	text-justify: inter-word;
+	line-height: 1.6; /* 1.8; */
+	font-size: 15pt; /* 12 */
+	font-family: ff-meta-web-pro;
+	font-weight: 300;
+	color: black;
+	hyphens: none;
+/* 	background-color: cornflowerblue; */
+}
+
+
+div.PartSec,
+div.introPartSec { margin: 0; }
+
+.partheading { margin-top: 20px; }
+
+.partSecText { margin-top: 30px; }
+
+.introPartSecNumber {
+ 	/* adjust offset from top here */
+	/* margin: 18rem 0rem 1rem 0rem; */
+	text-align: right;
+	margin: 0;
+}
+
+.PartSecNumber {
+ 	/* adjust offset from top here */
+	/* margin: 12rem 0rem 1rem 0rem; */
+	text-align: right;
+	margin: 0 0 0 0;
+}
+
+/* .PartSec h2 { margin: 0; text-align: left;} */
+
+
+/* ======= LISTS ========== */
+
+li {
+	widows:2;
+	orphans:2;
+}
+
+/*=========== itemizedListSec ===========*/
+
+.itemizedListSec {
+	margin: 0;
+	padding: 2px 0 3px 30px; /* 30px is the indent for bullets */
+	/* background-color: palegreen; */
+}
+
+.itemizedListSec ul {
+	margin: 0;
+}
+
+.itemizedListSec li {
+	line-height: 1.25;
+	list-style:  disc;
+	margin-top: 6px;
+	margin-bottom: 6px;
+	text-align: justify;
+	text-justify: inter-word;
+	hyphens: auto;
+}
+
+.subSecSec .itemizedListSec {
+	margin-left: -5px;  /* move list item number in or out */
+	/* background-color: MediumSeaGreen; */
+}
+
+/* used? */
+.subSubSecSec .itemizedListSec {
+	/* margin-left: 15px;  */ /* move list item number in or out */
+	margin-left:-5px;
+	/* background-color: Lime; */
+}
+
+
+/*======= enumListSec ==========*/
+
+.enumListSec ol {
+	margin-top: 10px;
+	margin-bottom: 10px;
+	/* background-color: orange; */
+}
+
+.enumListSec li {
+	line-height: 1.4;
+	margin-top: 4px;
+	margin-bottom: 4px;
+	list-style: decimal;
+	text-align: justify;
+	text-justify: inter-word;
+	hyphens: auto;
+	/* background-color: plum; */
+}
+
+.sectionSec .enumListSec ol  {
+	margin-left: 30px;  /* move list item number in or out */
+	padding-left: 0px;
+	/* background-color: orange; */
+	/* border: solid black 1px; */
+}
+
+.subSecSec .enumListSec ol {
+	margin-left: 40px; /* move list item number in or out */
+	/* background-color: orange; */
+	/* border: solid black 1px; */
+}
+
+/*====== enumListAlphaSec =========*/
+
+.enumListAlphaSec {
+	padding: 5px 0 5px 0px;
+	/* background-color: MediumTurquoise; */
+}
+
+.enumListAlphaSec ol {
+	margin: 0;
+	margin-left: 30px;  /* move list item number in or out */
+}
+
+.enumListAlphaSec li {
+	list-style: upper-alpha;
+	line-height: 1.4em;
+	margin: .5rem 0 .5rem 0;
+	text-align: justify;
+	text-justify: inter-word;
+	hyphens: auto;
+}
+
+.subSecSec .enumListAlphaSec {
+	margin-left: 20px;  /* move list item number in or out */
+	/* background-color: MediumSeaGreen; */
+}
+
+
+
+/* ============================= */
+/* Indents */
+/* ============================= */
+
+p { /* text-indent: 1.5rem;  */	/* text-indent: 20px; */ }
+
+.body { text-indent: 20px; }
+
+.subtitle { text-indent: 0; }
+
+/* h1 + .body, h2 + .body, h3 + .body { text-indent: 0; } */
+/*first paragraph no indent */
+h2 + .body, h3 + .body, h4 + .body, h5 + .body { text-indent: 0;}
+
+div.chapterSec p:first-of-type,
+div.chapterSecText p:first-of-type,
+div.chapterSecIntro p:first-of-type { text-indent: 0; }
+
+div.noindent p:first-of-type,
+div.introSec p:first-of-type,
+div.sectionSec p:first-of-type,
+div.subSecSec p:first-of-type,
+div.subSubSecSec p:first-of-type,
+div.backmatterSecText p:first-of-type { text-indent: 0; }
+
+.framedSec p:first-of-type { text-indent: 0; }
+
+/* don't know why this doesn't work */
+/* div.figureSec + p { text-indent: 0;} */
+
+.itemizedListSec p:first-of-type { text-indent: 0; }
+
+.noindent  { text-indent: 0; /*  background-color: pink; */}
+
+/* Doesn't work on p.body. See tweaks. Use ID. */
+.indentHere  { text-indent: 15px; }
+
+.seealso  { text-indent: 0; }
+
+
+/* no indent of first para after list */
+div.enumListSec + p,
+div.itemizedListSec + div p,
+div.itemizedListSec + p,
+div.enumListAlphaSec + p,
+div.enumListNoPrefSec + p { text-indent: 0;}
+
+/* No indent if first para after pagebreak */
+div.pagebreak + p { text-indent: 0; }
+
+/* p.figDesc + div.framedSec */
+div.framedSec + p.body,
+p.figDesc + p.body { text-indent: 0;}
+
+
+p.hangingIndent {
+	text-indent: -15px;
+	padding-left: 15px;
+}
+
+/* over-ride .framedSec p:first-of-type { text-indent: 0; } */
+div.framedSec p.hangingIndent:first-of-type { text-indent: -15px; }
+
+
+.hangingList p {
+	text-indent: -15px;
+	padding-left: 15px;
+ }
+
+div.hangingList p:first-of-type,
+div.colophonIndent p:first-of-type { text-indent: -15px; }
+
+div.subSecSec .hangingList {
+	padding-left: 15px;
+}
+
+/* used on Colophon list */
+#colophonIndent { margin-left: 15px; }
+
+
+/* ============ Vertical Spacing ============== */
+
+
+/* Set inter-element spacing */
+
+div.floatBottom + p.body,
+div.ix + p,
+p.body + p.body,
+p.body + p.hangingIndent,
+p.hangingIndent + p.hangingIndent,
+p.body + div.hangingList,
+div.hangingList + p.body,
+p.body + p.centered,
+p.centered + p.body,
+p.figDesc + div.framedSec,
+div.framedSec + p.body,
+div.hideme + p.body,
+div.ix + p.body,
+div.ixProd + p.body {
+	margin-top: 8px; /* 10px; */
+	/* background-color: orange; */
+}
+
+
+/*========= SPACING ISSUSES CASED BY FLOATS =============*/
+
+div.floatBottom .figureSec,
+div.floatTop .figureSec {
+	margin-top: 0;
+	/* background-color: lime; */
+}
+
+/* floats mess up spacing between heading and paras */
+h4 + .floatRight + p {
+	margin-top: 0px !important;
+	padding-top: 0px;
+	/* background-color: lime; */
+}
+h3 + .floatRight + p {
+	margin-top: 0px !important;
+	padding-top: 0px;
+	/* background-color: lime; */
+}
+
+div.floatBottom + p  {
+	margin-top: inherit;
+	text-indent: 0;
+	/* background-color: thistle; */
+}
+
+div.floatTop + p  {
+	margin-top: inherit;
+	text-indent: 0;
+	/* background-color: lightsalmon; */
+}
+
+/* images top floated need 0 top margin */
+div.floatTop .figureSec { margin-top: 0 !important; /* background-color: lime; */ }
+
+
+/*========= End of Float Tweaks ==========*/
+
+
+/* tighten up the para to the h3 */
+h3 + p {
+	margin-top: -4px !important;
+	padding-top: 0;
+	/* background-color: aliceblue; */
+}
+
+h4 + p.body,
+h5 + p.body {
+	margin-top: 0;
+	/* background-color: aliceblue; */
+}
+
+h4 + .subSubSecSec h5 {
+	margin-top: 0;
+	/* background-color: lavenderblush; */
+}
+
+/* extra space between leading para and Section title */
+p + div.sectionSec {
+	/* 	background-color: powderblue; */
+	/* margin-top: 12px; */
+}
+
+/* space between head and text in Sub Sub Sec */
+.subSubSecSec p.body:first-of-type {
+	/* margin-top: .5em; */
+	/* background-color: mintcream; */
+}
+
+/* tighten up spacing between h3 and h4 */
+/* critical on 14.12 */
+h3 + .subSecSec h4 {
+	margin-top: 0px;/*  background-color: lime; */
+}
+
+
+
+/* GOOD! Sets a top margin for images following text,
+but doesn't put a top margin on images at top of page
+"not" is needed to not put space between two images  */
+div:not(div.figureSec) + div.figureSec { margin-top: 15px; }
+
+/* tighten up spacing between two images one after another on a page*/
+div.figureSec + div.figureSec { margin-top: 6px;}
+
+p + div.figureSec  { margin-top: 10px; }
+
+/* Add some space between an image and following para, but not if the image is a float, which would appear elsewhere. */
+div.figureSec + p  { /* div.figureSec:not(.floatBottom) + p  { */
+	margin-top: 8px;
+	text-indent: 0;
+	/* background-color: pink; */
+}
+
+/* bump down first paragraph after a figure description */
+div:has(> p.figDesc) + p { margin-top: 10px;/*  background-color: lime; */}
+
+
+/* pulls up bullet list closer to h headings */
+/* If the saddle is too far back... */
+h3 + div.itemizedListSec,
+h4 + div.itemizedListSec,
+h5 + div.itemizedListSec {
+	margin-top: -5px;
+	/* background-color: lime; */
+}
+
+div.endmark.abouttheauthor {
+	margin: 30px 0 0 0;
+	padding: 0 0 0 0;
+}
+
+
+
+/*=============== MARGIN AND PADDING CLASSES ==============*/
+
+/*  Vertical padding tweaks to space out content as required (position illos) */
+.topPadding05 { padding-top:  5px !important; }
+.topPadding10 { padding-top: 10px !important; }
+.topPadding15 { padding-top: 15px !important; }
+.topPadding20 { padding-top: 20px !important; }
+.topPadding25 { padding-top: 25px !important; }
+.topPadding30 { padding-top: 30px !important; }
+.topPadding35 { padding-top: 35px !important; }
+.topPadding40 { padding-top: 40px !important; } /* aligns with top of first text line after section or Chap head */
+.topPadding45 { padding-top: 45px !important; }
+.topPadding50 { padding-top: 50px !important; }
+.topPadding55 { padding-top: 55px !important; }
+.topPadding60 { padding-top: 60px !important; }
+.topPadding65 { padding-top: 65px !important; }
+.topPadding70 { padding-top: 70px !important; }
+.topPadding75 { padding-top: 75px !important; }
+.topPadding80 { padding-top: 80px !important; }
+
+/* remove the above padding */
+.notoppad { padding-top: 0 !important; }
+
+.notopmargin,
+.topMargin0 { margin-top: 0 !important; }
+
+.topMarginN05 { margin-top: -5px !important; }
+.topMarginN10 { margin-top: -10px !important; }
+.topMarginN15 { margin-top: -15px !important; }
+.topMarginN20 { margin-top: -20px !important; }
+.topMarginN25 { margin-top: -25px !important;}
+.topMarginN30 { margin-top: -30px !important;}
+.topMarginN35 { margin-top: -35px !important;}
+.topMarginN40 { margin-top: -40px !important;}
+
+.topMargin05 { margin-top: 5px !important; }
+.topMargin10 { margin-top: 10px !important; }
+.topMargin15 { margin-top: 15px !important; }
+.topMargin20 { margin-top: 20px !important; }
+.topMargin25 { margin-top: 25px !important; }
+.topMargin30 { margin-top: 30px !important;}
+
+.bottomMarginN05 { margin-bottom: -5px !important; }
+.bottomMarginN10 { margin-bottom: -10px !important; }
+.bottomMarginN15 { margin-bottom: -15px !important; }
+.bottomMarginN20 { margin-bottom: -20px !important; }
+.bottomMarginN25 { margin-bottom: -25px !important;}
+.bottomMarginN30 { margin-bottom: -30px !important;}
+
+.bottomMargin05 { margin-bottom: 5px !important; }
+.bottomMargin10 { margin-bottom: 10px !important; }
+.bottomMargin15 { margin-bottom: 15px !important; }
+.bottomMargin20 { margin-bottom: 20px !important; }
+.bottomMargin25 { margin-bottom: 25px !important; }
+.bottomMargin30 { margin-bottom: 30px !important;}
+
+
+
+
+/* ============================= */
+/* Page breaks */
+/* ============================= */
+
+/* suppress breaks between a heading and the text */
+
+h1, h2, h3, h4, h5 { break-after: avoid; }
+
+/* should work with chopping up the Scrivener sections to separate first paragraph */
+h1 + p,
+h2 + p,
+h3 + p,
+h4 + p,
+h5 + p {
+	break-before: avoid;
+	break-inside: avoid;
+	/* color: purple; */
+}
+
+
+.introSec h2,
+.sectionSec h3,
+.subSecSec h4
+.subSubSecSec h5 {
+	/* break-after: avoid; */
+	/* background-color: azure; */
+}
+
+
+
+.partSecText {
+	break-before: avoid;
+	break-after: column;
+}
+
+
+/* Manual controls */
+
+/* the REAL page break */
+.pagebreak {break-before: page;}
+
+.nobreakbefore { break-before: avoid; }
+
+.nobreakinside { break-inside: avoid; }
+
+.breakbefore { break-before: always; }
+
+.breakinside { break-inside: auto; }
+
+.breakafter { break-after: always; }
+
+
+div.frontmatterSec,
+div.backmatterSec { break-before: column; }
+
+div.PartSec,
+div.introPartSec {
+	break-before: right;
+	/* break-after: page; */
+}
+
+div.chapterSec {
+	break-before: column;
+	break-after: avoid;
+}
+
+
+/* ============================= */
+/* Bold, italic, dashes, etc. */
+/* ============================= */
+
+em, .emph { /* , .emph */
+	font-weight: normal;
+	font-style: italic !important;
+	text-decoration: none;
+	/* background-color: lawngreen; */
+}
+
+
+b {
+	font-weight: var(--strongWeight); /* bold; */
+	font-style: normal;
+	text-decoration: none;
+}
+
+.strong {
+	font-weight: var(--strongWeight); /* bold; */
+	/* font-style: normal; */
+	text-decoration: none;
+}
+
+.underline { text-decoration: underline; }
+
+
+
+a {
+	text-decoration: none;
+	/* color: #000099; */
+	color: black;
+	letter-spacing: inherit;
+	line-height: inherit;
+	word-spacing: inherit;
+}
+
+
+
+
+
+/* ============================= */
+/* Images */
+/* ============================= */
+
+
+/* is used */
+img {
+	display: block;
+	margin:  0em auto 0em auto;
+	padding: 0;
+	width: 100%;
+}
+
+.caption, .blankSpaceCaption {
+	font-family: var(--myBodyFont);
+	text-align: center;
+	line-height: 1.2rem;
+	font-size: 10.5pt;
+	font-weight: normal;
+	clear: both;
+}
+
+.caption, .blankSpaceCaption {
+	padding: .5em  0 .5em 0;
+	margin: 0;
+}
+
+
+/* used to shave some height off of the caption when needed */
+.lowCaption {
+	padding-bottom: 0;
+	margin-bottom: 0;
+	/* background-color: aliceblue; */
+}
+
+
+
+.figureSec {
+/*
+	margin-left: inherit;
+	margin-top: 0;
+	margin-bottom: 0;
+ */
+	margin: 0;
+	padding: 0;
+	break-inside: avoid;
+	/* background-color: pink; */
+}
+
+/* parking your bike */
+
+.parkingPics {
+	margin-top: .2em;
+	margin-bottom: 0em;
+	padding-bottom: 0em;
+	break-inside: avoid;
+}
+
+.parkingPics p {
+	text-indent: 0;
+	margin-bottom: .2em;
+	line-height: 1.2em;
+}
+.parkingPics .figureSec {
+	margin-top: 5px !important;
+}
+
+.parkingPics.bottomPic {
+	margin-top: 9px;
+	/* background-color: lime; */
+}
+
+/* Figure descriptions in Sub-sections */
+div.subSecSec p.figDesc  {
+/*
+	padding-right: 1em;
+	padding-left: 1em;
+ */
+/* 	background-color: mintcream; */
+}
+
+
+
+/* additional text below figure */
+.figDesc {
+	margin: 0 5px 0 5px;
+	padding: 5px 10px 0px 10px;
+	border-style: solid; border-width:0 .6pt 0 .6pt ;
+	border-color: gray;
+	break-inside: avoid;
+	/* background-color: aliceblue; */
+}
+
+.floatRight .figDesc,
+.floatLeft .figDesc {
+	margin: 0 5px 0 5px;
+	padding: 0px 10px 0px 10px;
+	line-height: 1.3;
+	/* background-color: aliceblue; */
+}
+
+.floatRight p.caption ,
+.floatLeft p.caption {
+	line-height: 1.3;
+	/* background-color: aliceblue; */
+}
+
+div.subSecSec .figDesc  {
+	margin-left: 5px; /* 18px; */ /* bump in for subSecSec */
+	/* background-color: mintcream; */
+}
+
+div.floatRight {
+	float: right;
+	margin: 0 0 5px 8px;
+	/* margin: 8px 0 5px 10px; */
+	padding: 0 0 0 0;
+}
+.floatRight img {
+	padding: 0;
+	margin: 0;
+}
+.floatRight p {
+	font-size: 13px;
+	line-height: 1;
+	padding: 4px 0 0 0;
+	margin: 0;
+}
+
+
+/* not working */
+/*
+.floatTopRight {
+	-prince-float: page top;
+    -prince-float-reference: page;
+	 -prince-float: right;
+}
+ */
+
+
+.floatLeft {
+	float: left;
+	margin: 0 8px 5px 0;
+	/* padding: 8px 0 0 0; */
+	/* background-color: aliceblue; */
+}
+.floatLeft img {
+	padding: 0;
+	margin: 0;
+}
+.floatLeft p {
+	font-size: 13px;
+	line-height: 1;
+	padding: 0;
+	margin: 0;
+}
+
+.floatWide25 {	width: 25%;}
+.floatWide30 {	width: 30%;}
+.floatWide35 {	width: 35%;}
+.floatWide40 {	width: 40%;}
+.floatWide45 {	width: 45%;}
+.floatWide50 {	width: 50%;}
+.floatWide55 {	width: 55%;}
+.floatWide60 {	width: 60%;}
+.floatWide65 {	width: 65%;}
+
+
+p.figDesc {
+	text-indent: 0;
+	text-align: justify;
+	text-justify: inter-word;
+	hyphens: auto;
+	font-style: italic;
+}
+
+.floatBottom {
+	-prince-float:page bottom;
+	margin:inherit;
+	padding-top: 10px; /* moves para text away from bottom of image */
+	/* background-color: thistle; */
+}
+
+.floatTop {
+	-prince-float:page top;
+	/* margin: inherit; */
+	margin-left: inherit;
+	margin-top: 3px !important; /* to align closer to top of text. Over 3px increases page count */
+	padding-top: 0;
+	padding-bottom: 10px; /* moves para text away from bottom of image */
+	/* background-color: lightsalmon; */
+}
+
+.floatTop + p {
+	/* margin-top: 10px; */
+	/* background-color: lightsalmon; */
+}
+
+span.cgicon {
+	display: inline-block;
+	width: 12px;
+	height: 12px;
+	padding: 0;
+	margin: 2px 0 -2px 0;
+}
+
+
+.clearFloat {clear: both;}
+
+.clearNone {clear: none !important;}
+
+
+
+/* ============== Photos for blank pages and blank spaces ============= */
+
+
+
+/* used on chapter end blankSpacePic photos */
+/* div.endmark + div.figureSec { margin-top: 7px;} */
+div.blankSpacePic .figureSec {margin-top: 0;}
+
+
+/*  Blank Page Two Up Photos */
+
+.blankPagePhotos {
+	break-before: page;
+	margin-top: 0;
+	position: absolute; bottom: 0;
+}
+
+.blankPagePhotos .photoframe {
+	/* border: .5pt solid black; padding: 5px; */
+	margin-top: 10px;
+}
+
+.blankPagePhotos .figureSec {
+	margin: 0;
+}
+
+.blankPageTitle {
+	font-family: var(--myHeadingFont);
+	color: var(--myHeadingColor);
+	font-size: var(--h5FontSize);
+	font-weight: var(--headingWeight);
+	text-align: center;
+	margin-bottom: 8px;
+ }
+
+/* Blank Space Photos */
+
+div.blankSpacePic {
+	margin-top: 5px;
+	position: absolute; bottom: 0;
+}
+
+
+
+
+/* ============================= */
+/* Frames */
+/* ============================= */
+
+
+.framedSec { /* notes about illos, etc. */
+	break-inside: avoid;
+	padding: 10pt;
+	margin: 10px 0px 10px 0px; /* removed the left and right margins */
+	border: .6pt solid slategray;
+	line-height: 1.2em;
+}
+
+
+.anecdote {
+	break-inside: avoid;
+	margin: 10px 0px 10px 0px; /* removed the left and right margins */
+	padding: 0 0 0 10pt;
+	border-left: 4pt solid gray;
+	/* line-height: 1.2em; */
+}
+/* for when I need to conserve vertical space */
+.anecdote.compressed {
+	line-height: 1.27em;
+}
+
+
+div.subSecSec div.framedSec {
+	/* margin-left: 15px; */
+		/* background-color: aliceblue; */
+}
+
+
+/* ======== QR Codes ========== */
+div.qrcode_l, .qrcode_r {
+	height: 100px;
+	margin-top: 16px;
+	margin-bottom: 16px;
+}
+
+.qrcode_r img {
+	float:right;
+	margin-left: 10px;
+	/* width: 100px; */
+	width: 1in;
+}
+
+.qrcode_l img {
+	float:left;
+	margin-right: 10px;
+	/* width: 100px; */
+	width: 1in;
+}
+
+.qrcode_l p,
+.qrcode_r p { text-indent: 0;}
+
+/* ============================= */
+/* Markup */
+/* ============================= */
+
+/*
+	text-underline-style: dotted;
+	text-underline-style: dashed;
+ */
+
+.dimmed {
+	color: gray; /* color: lightgray; */
+	/* letter-spacing: -2px; */
+}
+
+.geometryNames {
+	font-weight: 500;
+	font-style: italic;
+}
+
+.glsWrd {
+	font-style: normal;
+	/* text-decoration: underline; */
+	/* text-underline-color:green; */
+	/* background-color: white; */
+	/* text-overline: green; */
+	/* background-color: hsl(120, 100%, 75%); */ */ /* green */
+}
+
+.glsWrd.show {
+	font-style: italic;
+	text-decoration: none;
+	/* text-underline-color:green; */
+	/* background-color:var(--myGreen); */
+	/* color: hsl(120, 100%, 25%);  *//* green */
+	color: var(--glsWrdColor); /* cyan */
+	font-weight: 500;
+}
+
+
+.estTech.show, .estTerms.show {
+	font-style: italic;
+	text-decoration: none;
+	/* background-color: var(--myBlue); */
+	/* color: hsl(240, 100%, 30%); */ /* darkblue; */
+	color: var(--estTermsColor); /*  indigo */
+	/* color: hsl(180, 100%, 20%); */ /* cyan Make established and glosswords same color */
+	font-weight: 500;
+}
+
+/* .estTech,  */
+.estTerms {
+	font-style: normal;
+	/* text-decoration: underline; */
+	/* color: hsl(240, 100%, 30%); */ /* darkblue; */ /* cmyk(100%, 100%, 0%, 40%) */
+	text-underline-color:blue;
+	/* background-color: white; */
+}
+
+.estTech {
+	font-style: normal;
+}
+
+.estTech.nogloss, .estTerms.nogloss {
+	font-style: italic;
+	text-decoration: none;
+	color: black;
+	/* text-underline-color:blue; */
+	/* background-color: var(--myBlue); */
+}
+
+
+.myTech.show, .myTerms.show {
+	font-style: italic;
+	text-decoration: none;
+	/* text-underline-color:red; */
+	/* background-color: var(--myRed);  */
+	color: var(--myTermsColor); /* cmyk(0%, 100%, 100%, 50%) */
+	font-weight: 500;
+}
+
+.myTech, .myTerms {
+	font-style: italic;
+	/* text-decoration: underline; */
+	/* text-underline-color:red; */
+	/* background-color: white; */
+	/* color: hsl(0, 100%, 25%);  *//*  maroon; *//* cmyk(0%, 100%, 100%, 50%) */
+}
+
+.myTech.nogloss, .myTerms.nogloss {
+	font-style: italic !important;
+	text-decoration: none;
+	/* color: hsl(0, 100%, 25%); */ /*  maroon; *//* cmyk(0%, 100%, 100%, 50%) */
+}
+
+/* For Glossary headings */
+.glsWrdColor {color: var(--glsWrdColor);}
+.estTermsColor {color: var(--estTermsColor);}
+.myTermsColor {color: var(--myTermsColor);}
+
+
+/* my terms not in glossary */
+.terms,
+.estTerms.nogloss,
+.estTech.nogloss,
+.myTerms.nogloss,
+.myTech.nogloss {
+	font-style: italic;
+	/* background-color: white; */
+}
+
+
+.prodName {
+	font-weight: 500;
+	color: var(--myDarkPurple);
+}
+
+.bkCls { /* Bike Class */
+	font-weight: 500;
+	color: hsl(0, 68%, 35%); /* rust red cmyk(0%, 81%, 81%, 41%) */
+}
+
+.positions {
+	font-weight: var(--strongWeight);
+	color: hsl(180, 25%, 30%); /* slategray *//*  cmyk(40%, 0%, 0%, 63%) */
+}
+
+.keyPhrase {
+	background-color: var(--myHilighter) !important;
+	font-style: italic;
+}
+
+/*
+.termLimitedUse {
+	font-style: italic;
+}
+ */
+
+.imbaRating {
+	font-weight: 500;
+	color: darkslategray; /* cmyk(41%, 0%, 0%, 69%) */
+}
+
+/* used for equation and others */
+.centered {
+	margin: 0;
+	text-align:center;
+}
+
+.centeredImage {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+/* used for endmark on About the Author */
+.endmark {
+	margin: 0;
+	padding: 0;
+	text-align:center;
+}
+
+.endmark img { width: 20% }
+
+/* .endmark.twoup img { width: 15% } */
+
+/* .bigMark.endmark img { width: 30% } */
+
+
+/* ============================= */
+/* Tables */
+/* ============================= */
+
+table#future, table#futureM {
+	/* border: 1px solid black; */
+}
+
+table {  border-collapse: collapse; }
+
+table#future th,
+table#futureM th {
+	text-align: center;
+	padding: 3px 6px 3px 6px;
+	border: .6px solid black;
+}
+
+table#future td,
+table#futureM td {
+	text-align: right;
+	padding: 2.5px 6px 2.5px 6px;
+	/* padding: 2.5px 10px 2.5px 10px; */
+	border: .6px solid black;
+}
+
+#futureTables {
+	display: flex;
+	justify-content: space-between;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+/* #wasfuture { margin: 12px auto;} */ /* Centers table */
+
+#future, #futureM {display: inline-block;}
+
+
+table#imba {
+	border-collapse: collapse;
+	margin: 0;
+	padding: 0;
+	border: solid black .5px;
+}
+
+#imba th {
+	font-size: 9pt;
+	line-height: 1.2;
+	font-family: var(--myHeadingFont);
+	font-weight: 400;
+	border: solid black .5px;
+	vertical-align: top;
+	padding: 5px 2px 5px 3px;
+	text-align: left;
+	background-color: whitesmoke; /* cmyk(0%, 0%, 0%, 4%) */
+}
+
+#imba td {
+	font-size: 8.5pt;
+	line-height: 1.2;
+	font-family: var(--myBodyFont);
+	border-left: solid black .5px;
+	border-right: solid black .5px;
+	vertical-align: top;
+	width: 20%; /* 16.7%; */
+	padding: 5px 2px 5px 3px;
+	hyphens: auto;
+}
+
+#imba td.dashed {
+	border-top: dashed black .5px;
+}
+
+#imba td.solid {
+	border-top: solid black .5px;
+}
+
+#imba tr.centered th {
+	text-align: center;
+	vertical-align: top;
+	border-top: none;
+}
+
+
+#imba tr.icons th {
+	border-bottom: none;
+	padding-top: 10px;
+}
+
+#imba tr.icons img {
+	width: .2in; /* .1875in;  *//* 20px; */
+	height: .2in; /* .1875in; */
+}
+
+#imba tr.icons th#double img {width: .4in; /* 40px; */ }
+
+
+/* table#reasons { */
+	/* border: 1px solid black; */
+/* } */
+
+/* table#reasons { border-collapse: collapse; } */
+
+/*
+table#reasons th {
+	text-align: left;
+	padding: 3px 10px 3px 10px;
+}
+ */
+
+/*
+table#reasons td {
+	text-align: left;
+	padding: 2.5px 10px 2.5px 10px;
+}
+ */
+
+/* #reasons { margin: 12px auto;} */ /* Centers table */
+
+
+/* ============================= */
+/* Book Title Page */
+/* ============================= */
+
+.bookTitle {
+	/* line-height: 1.2em; */
+	font-size: 38pt;
+	font-family: raleway, cursive;
+	font-weight: 300;
+	font-style: normal;
+	margin-top: 253px;
+	color: var(--myHeadingColor);
+	}
+
+
+.bookSubTitle {
+	margin-top: 8px;
+	/* line-height: 1.2em; */
+	font-size: 24pt; /* 21pt; */
+ 	font-family: ff-meta-headline-web-pro, cursive; /* font-family: 'Noto Sans Light'; */
+ 	font-weight: 300;
+ 	color: var(--myHeadingColor);
+	}
+
+.bookAuthor {
+	margin-top: 17px;
+	font-family: ff-meta-headline-web-pro, cursive;
+	font-weight: 300;
+	font-size: 20px;
+}
+
+/* ============================= */
+/* Other */
+/* ============================= */
+
+.redText {color: red;} /* cmyk(0%, 100%, 100%, 0%) */
+
+
+.hideme {
+	font-size: 0px;
+	visibility: hidden;
+	line-height: 0px;
+	margin: 0;
+	padding: 0;
+}
+
+/* Combined "hideme" into .ix.  */
+.myfrontmatter .ix,
+.myfrontmatter .ixProd,
+div.mainmatter div.ix,
+.mainmatter .ixProd,
+.mybackmatter .ix,
+.mybackmatter .ixProd,
+.myglossary .ix,
+.myglossary .ixProd  {
+	font-size: 0px;
+	visibility: hidden;
+	line-height: 0px;
+	margin: 0;
+	padding: 0;
+	/* display: none; */ /* makes Indexing fail! */
+	/* display: table; */
+	/* height: 0; */
+	/* border: .1pt solid black; */
+	/* background-color: lime; */
+}
+
+
+/* Backpack section */
+#ruleOfThumb {
+	font-size: 23px;
+	/* font-weight: bold; */
+}
+
+.externalURL {
+	/* font-family: 'Palette Mosaic', cursive; */
+}
+
+/* =========== Glossary ============ */
+
+
+.glossEntry h4 {
+	text-align: left;
+	line-height: 1.2em;
+	font-size: 1.1em;
+	/* font-weight: normal; */
+}
+
+.glossEntry h4 { margin: 0; }
+
+
+.glossEntry p {
+	text-align: justify;
+	text-justify: inter-word;
+	hyphens: auto;
+	orphans: 1;
+	widows: 1;
+	break-inside: auto;
+}
+
+.glossEntry p { margin-bottom: .6em; }
+

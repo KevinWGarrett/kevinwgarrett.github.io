@@ -1,0 +1,68 @@
+
+
+body {margin: .5in}
+
+.holder {
+    width: 100%;
+    /* height: 100px; */
+    overflow: hidden; /* will contain if #first is longer than #second */
+    border-bottom: .5px solid gray;
+}
+
+.left {
+    width: 350px; /* 370 max for 13pt entries */
+    float:left; /* add this */
+    /* background-color: aliceblue; */
+
+}
+
+.right {
+    overflow: hidden;
+}
+
+
+li.h1 {font-size: 17pt;}
+li.h2 { font-size: 15pt;}
+li.h3 { font-size: 13pt;}
+
+
+div.right {
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: row;
+	justify-content: flex-start !important;
+	/* align-content: flex-start !important; */
+	/* align-items: center; */
+	/* background-color: aliceblue; */
+}
+
+.right img {
+	width: 160px;
+	padding: 5px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.flexitem {
+	flex-basis: auto;
+	flex: auto;
+	flex-grow: 0;
+	/* background-color: green; */
+
+}
+
+img.test {
+	width: 160px;
+	flex-basis: auto;
+	flex: auto;
+	flex-grow: 1;
+
+}
+
+li.h3 {margin-left: 15px;}
+
+
+ul#toc {
+	list-style-type: none;
+}
+
