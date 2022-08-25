@@ -5,8 +5,8 @@ div.flexcontainer {
 	align-items: center;
 	margin-left: auto;
 	margin-right: auto;
-	width: 90%
-	/* background-color: aliceblue; */
+	width: 96%;
+	/* background-color: aliceblue !important; */
 }
 
 .flexbutton {
@@ -17,13 +17,6 @@ div.flexcontainer {
  flex-shrink: 1;
 /* background-color: green; */
 }
-
-/*
-li::marker {
-    content: '$ sss';
-    background-color: blue;
-}
- */
 
 li {
 	/* background-color: pink; */
@@ -40,11 +33,5 @@ li {
 	padding:.375rem .75rem !important;
 }
 
-div.mytoc {
-	width:95%;
-	margin-left: auto;
-	margin-right: auto;
-	/* margin-left: 20px; */
-}
 
 h1.mytitle { font-size: 28pt !important;}
