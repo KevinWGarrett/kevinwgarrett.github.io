@@ -10,7 +10,10 @@ body {margin: .5in}
 }
 
 .left {
-    width: 350px; /* 370 max for 13pt entries */
+    /* max-width: 350px; */
+   /*  min-width: 150px; */
+    width: 35%;
+    /* 370 max for 13pt entries */
     float:left; /* add this */
     /* background-color: aliceblue; */
 
