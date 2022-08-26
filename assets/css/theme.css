@@ -600,35 +600,10 @@ textarea.form-control-lg{min-height:calc(1.5em + (1rem + 2px))}
 .form-check-inline .form-check-input~.invalid-feedback{margin-left:.5em}
 .was-validated .input-group .form-control:invalid,.input-group .form-control.is-invalid,.was-validated .input-group .form-select:invalid,.input-group .form-select.is-invalid{z-index:2}
 .was-validated .input-group .form-control:invalid:focus,.input-group .form-control.is-invalid:focus,.was-validated .input-group .form-select:invalid:focus,.input-group .form-select.is-invalid:focus{z-index:3}
-
-
-
-
-
-
 /* my changes */
 
-.btn{display:inline-block;
-	font-weight:400;
-	line-height:1.5;
-	color:#1c1e2e;
-	text-align:center;
-	text-decoration:none;
-	vertical-align:middle;
-	cursor:pointer;
-	-webkit-user-select:none;
-	-moz-user-select:none;
-	-ms-user-select:none;
-	user-select:none;
-	background-color:transparent;
-	border:1px solid transparent;
-	padding:.375rem .75rem;
-	/* padding:.375rem .75rem !important; */
-	font-size:1rem;
-	border-radius:.25rem;
-	transition:color 0.15s ease-in-out,background-color 0.15s ease-in-out,border-color 0.15s ease-in-out,box-shadow 0.15s ease-in-out
-}
-
+.btn{display:inline-block;	font-weight:400;	line-height:1.5;	color:#1c1e2e;	text-align:center;	text-decoration:none;	vertical-align:middle;	cursor:pointer;	-webkit-user-select:none;	-moz-user-select:none;	-ms-user-select:none;	user-select:none;	background-color:transparent;	border:1px solid transparent;	padding:.375rem .75rem;	/* padding:.375rem .75rem !important; */
+	font-size:1rem;	border-radius:.25rem;	transition:color 0.15s ease-in-out,background-color 0.15s ease-in-out,border-color 0.15s ease-in-out,box-shadow 0.15s ease-in-out }
 
 @media (prefers-reduced-motion: reduce){.btn{transition:none}
 }
